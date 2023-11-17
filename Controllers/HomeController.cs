@@ -20,6 +20,9 @@ namespace PustokApp.Controllers
 
             List<Feature> feature = _context.Features.ToList();
 
+            List<Book> books = _context.Books.ToList();
+            
+
             HomeVM allClassesInOne = new HomeVM
             {
                 Slides = sliders,

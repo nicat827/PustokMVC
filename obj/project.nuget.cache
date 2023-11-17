@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5v7g44yKXkttBprO1KoU9EFQWWdgWF1/QH77MSH7IT+C+avU3fhPeh93S1ywFBNUkpKqE+KhNTgwHHVeSmDU0A==",
+  "dgSpecHash": "o0+3BUFYmN9azDCrQ8c7o1mxY4oxCItiyoFIQhpIuPFUx65ZTfqdrL5JaCkINboZhX+baKMO6+xyGVCneH4klw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ca.r214.05\\Desktop\\PustokApp\\PustokApp.csproj",
+  "projectFilePath": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\PustokApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ca.r214.05\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\ca.r214.05\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

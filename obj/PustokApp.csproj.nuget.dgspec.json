@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ca.r214.05\\Desktop\\PustokApp\\PustokApp.csproj": {}
+    "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\PustokApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ca.r214.05\\Desktop\\PustokApp\\PustokApp.csproj": {
+    "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\PustokApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ca.r214.05\\Desktop\\PustokApp\\PustokApp.csproj",
+        "projectUniqueName": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\PustokApp.csproj",
         "projectName": "PustokApp",
-        "projectPath": "C:\\Users\\ca.r214.05\\Desktop\\PustokApp\\PustokApp.csproj",
+        "projectPath": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\PustokApp.csproj",
         "packagesPath": "C:\\Users\\ca.r214.05\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ca.r214.05\\Desktop\\PustokApp\\obj\\",
+        "outputPath": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ca.r214.05\\AppData\\Roaming\\NuGet\\NuGet.Config",
