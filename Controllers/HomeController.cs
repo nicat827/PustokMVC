@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PustokApp.DAL;
 using PustokApp.Models;
 using PustokApp.ViewModels;
@@ -20,13 +21,15 @@ namespace PustokApp.Controllers
 
             List<Feature> feature = _context.Features.ToList();
 
-            List<Book> books = _context.Books.ToList();
+            List<Book> books = _context.Books.Include(x => x.Author).Include(x=> x.Genre).Include(x => x.Images).ToList();
+
             
 
             HomeVM allClassesInOne = new HomeVM
             {
                 Slides = sliders,
-                Features = feature
+                Features = feature,
+                Books = books
             };
 
             return View(allClassesInOne);
