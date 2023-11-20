@@ -30,6 +30,10 @@
 
         public List<BookImage> Images { get; set; }
 
+        public List<BookTag> BookTags { get; set; }
+
+
+
 
     }
 }
