@@ -1,16 +1,16 @@
 ﻿
-@model Genre
+@model Tag
 
 <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">New Tag:</h4>
+                <h4 class="card-title">Update tag:</h4>
                 
                 <form class="forms-sample" method="post">
                     <div class="form-group">
                         <label asp-for="Name">Name</label>
-                        <input asp-for="Name" class="form-control" placeholder="Genre">
+                        <input asp-for="Name" class="form-control" placeholder="Tag">
                         <span class="text-danger p-2 " asp-validation-for="Name"></span>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
