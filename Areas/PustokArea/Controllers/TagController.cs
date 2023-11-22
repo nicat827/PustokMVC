@@ -86,6 +86,7 @@ namespace PustokApp.Areas.PustokArea.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();
@@ -95,8 +96,10 @@ namespace PustokApp.Areas.PustokArea.Controllers
             if (tag is null) return NotFound();
 
             _context.Tags.Remove(tag);
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+
     }
 }
