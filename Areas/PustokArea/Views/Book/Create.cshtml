@@ -1,0 +1,61 @@
+﻿@model CreateBookVM
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">New Slide:</h4>
+
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control">
+                        <span class="text-danger p-2 " asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AuthorId"></label>
+                        <select asp-for="AuthorId" class="form-control" asp-items="new SelectList(Model.Authors, nameof(Author.Id), nameof(Author.Fullname))">
+                            <option selected disabled >Chooce author</option>
+                        </select>
+                        <span class="text-danger p-2 " asp-validation-for="AuthorId"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GenreId"></label>
+                        <select asp-for="GenreId" class="form-control" asp-items="new SelectList(Model.Genres, nameof(Genre.Id), nameof(Genre.Name))">
+                            <option selected disabled>Chooce genre</option>
+                        </select>
+                        <span class="text-danger p-2 " asp-validation-for="AuthorId"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PageCount"></label>
+                        <input asp-for="PageCount" class="form-control">
+                        <span class="text-danger p-2 " asp-validation-for="PageCount"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CostPrice"></label>
+                        <input asp-for="CostPrice" class="form-control">
+                        <span class="text-danger p-2 " asp-validation-for="CostPrice"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control">
+                        <span class="text-danger p-2 " asp-validation-for="Description"></span>
+                    </div> 
+                    <div class="form-group">
+                        <label asp-for="Discount"></label>
+                        <input asp-for="Discount" class="form-control">
+                        <span class="text-danger p-2 " asp-validation-for="Discount"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SalePrice"></label>
+                        <input asp-for="SalePrice" class="form-control">
+                        <span class="text-danger p-2 " asp-validation-for="SalePrice"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button asp-controller="book" asp-action="index" class="btn btn-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,6 @@
-﻿namespace PustokApp.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PustokApp.Models
 {
     public class Slide
     {
@@ -13,5 +15,9 @@
         public int Order { get; set; }
 
         public string ImageURL { get; set; }
+
+        
+
+
     }
 }

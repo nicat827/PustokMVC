@@ -61,21 +61,23 @@ namespace PustokApp.Areas.PustokArea.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(int id, Tag newTag)
+        public async Task<IActionResult> Update(int? id, Tag newTag)
         {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+           
             Tag oldTag = await _context.Tags.FirstOrDefaultAsync(t => t.Id == id);
             if (oldTag is null) return NotFound();
+           
+            if (!ModelState.IsValid)
+            {
+                return View(oldTag);
+            }
             bool isExistName = await _context.Tags.AnyAsync(t => t.Name.Trim() == newTag.Name.Trim() && t.Id != id);
             if (isExistName)
             {
                 ModelState.AddModelError("Name", "Tag with this name already exist!");
                 return View();
             }
-
+            
 
             if (oldTag.Name == newTag.Name.Trim()) return RedirectToAction(nameof(Index));
 
