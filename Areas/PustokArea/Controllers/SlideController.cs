@@ -94,6 +94,60 @@ namespace PustokApp.Areas.PustokArea.Controllers
 
             Slide slide = await _context.Slides.FirstOrDefaultAsync(s => s.Id == id);
             if (slide is null) return NotFound();
+            UpdateSlideVM slideVM = new UpdateSlideVM
+            {
+                Title = slide.Title,
+                Subtitle = slide.Subtitle,
+                Description = slide.Description,
+                Order = slide.Order,
+                ImageUrl = slide.ImageURL
+
+            };
+            return View(slideVM);
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Update(int id, UpdateSlideVM slideVM)
+        {
+            if (!ModelState.IsValid) return View(slideVM);
+
+            Slide slide = await _context.Slides.FirstOrDefaultAsync(s => s.Id == id);
+            if (slide == null) return NotFound();
+
+
+            if (slideVM.Photo is not null)
+            {
+                if (!slideVM.Photo.CheckFileType(FileType.Image))
+                {
+                    ModelState.AddModelError("Photo", "Please, make sure, you uploaded a photo!");
+                    return View(slideVM);
+                }
+
+                if (slideVM.Photo.Length > 1024 * 1024 * 2)
+                {
+                    ModelState.AddModelError("Photo", "Photo size bigger than max!");
+                    return View(slideVM);
+                }
+
+                slide.ImageURL.DeleteFile(_env.WebRootPath, "uploads", "slide");
+                slide.ImageURL = await slideVM.Photo.CreateFileAsync(_env.WebRootPath, "uploads", "slide");
+
+
+            }
+
+            slide.Order = slideVM.Order;
+            slide.Subtitle = slideVM.Subtitle;
+            slide.Title = slideVM.Title;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            if (id <= 0) return BadRequest();
+            Slide slide = await _context.Slides.FirstOrDefaultAsync(s => s.Id == id);
+            if (slide is null) return NotFound();
 
             return View(slide);
         }

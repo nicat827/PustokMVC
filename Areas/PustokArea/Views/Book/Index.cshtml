@@ -38,6 +38,10 @@
 
                                     <td>
                                         @count
+                                        @if (!book.IsAviable)
+                                        {
+                                            <span style="background-color:orangered; padding:5px 10px; color:white; margin-left:5px; border-radius:5px">Out of stock</span>
+                                        }
                                     </td>
                                     <td>
                                         <img style="width:150px; height:150px; border-radius:0px;" src="~/assets/image/products/@book.Images.FirstOrDefault(i => i.IsPrimary == true)?.Image" />
@@ -46,7 +50,7 @@
                                         @book.Name
                                     </td>
                                     <td>
-                                        @book.Genre
+                                        @book.Genre.Name
                                     </td>
                                     <td>
                                         <a asp-controller="book" asp-action="update" asp-route-id="@book.Id" class="btn btn-warning btn-info"><i class="mdi mdi-lead-pencil"></i></a>

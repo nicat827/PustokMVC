@@ -1,0 +1,23 @@
+﻿@model Book
+
+<h1 style="text-align:center;">Id: @Model.Id | Name: @Model.Name </h1>
+
+<h1>Genre: <b>@Model.Genre.Name</b></h1>
+<hr/>
+<h1>Author: <b>@Model.Author.Fullname</b></h1>
+<hr />
+<h1>Tags:</h1>
+@foreach(BookTag bt in Model.BookTags)
+{
+    <span>@bt.Tag.Name </span>
+}
+<h1>Cost price: <b>@Model.CostPrice$ | SalePrice: @Model.SalePrice$ | Discount: @Model.Discount$</b></h1>
+<hr />
+
+<h1>IsAviable: <b>@Model.IsAviable</b></h1>
+<hr />
+
+
+
+<h1>Description:</h1>
+<p>@Model.Description</p>

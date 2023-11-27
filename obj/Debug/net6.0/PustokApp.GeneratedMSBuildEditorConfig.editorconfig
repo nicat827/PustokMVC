@@ -20,8 +20,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHVzdG9rQXJlYVxWaWV3c1xCb29rXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ca.r214.05/Desktop/Nicats folder/PustokApp/Areas/PustokArea/Views/Book/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHVzdG9rQXJlYVxWaWV3c1xCb29rXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ca.r214.05/Desktop/Nicats folder/PustokApp/Areas/PustokArea/Views/Book/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHVzdG9rQXJlYVxWaWV3c1xCb29rXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ca.r214.05/Desktop/Nicats folder/PustokApp/Areas/PustokArea/Views/Book/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHVzdG9rQXJlYVxWaWV3c1xCb29rXFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ca.r214.05/Desktop/Nicats folder/PustokApp/Areas/PustokArea/Views/Dashboard/Index.cshtml]
@@ -42,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ca.r214.05/Desktop/Nicats folder/PustokApp/Areas/PustokArea/Views/Slide/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHVzdG9rQXJlYVxWaWV3c1xTbGlkZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ca.r214.05/Desktop/Nicats folder/PustokApp/Areas/PustokArea/Views/Slide/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHVzdG9rQXJlYVxWaWV3c1xTbGlkZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ca.r214.05/Desktop/Nicats folder/PustokApp/Areas/PustokArea/Views/Slide/Index.cshtml]

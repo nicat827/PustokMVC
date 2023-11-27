@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PustokApp.Areas.PustokArea.ViewModels
 {
-    public class CreateBookVM
+    public class UpdateBookVM
     {
         public string Name { get; set; }
         [Required]
@@ -27,19 +27,9 @@ namespace PustokApp.Areas.PustokArea.ViewModels
         [Required]
         public int? AuthorId { get; set; }
 
-        public List<int>? TagIds { get; set; }
+        public bool IsAviable { get; set; }
 
         public List<Genre>? Genres { get; set; }
         public List<Author>? Authors { get; set; }
-
-
-        public List<Tag>? Tags { get; set; }
-
-
-
-        //public List<BookImage> Images { get; set; }
-
-        //public List<BookTag> BookTags { get; set; }
-
     }
 }

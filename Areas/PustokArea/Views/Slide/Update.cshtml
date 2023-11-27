@@ -1,17 +1,20 @@
-﻿@model CreateSlideVM
+﻿@model UpdateSlideVM
 
 <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Update Slide:</h4>
-
+                <img src="~/uploads/slide/@Model.ImageUrl" style="max-width:100%"  />
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label asp-for="Photo"></label>
                         <input asp-for="Photo" class="form-control">
                         <span class="text-danger p-2 " asp-validation-for="Photo"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="ImageUrl" type="hidden" class="form-control">
                     </div>
                     <div class="form-group">
                         <label asp-for="Title"></label>
