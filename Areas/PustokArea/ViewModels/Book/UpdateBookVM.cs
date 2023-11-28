@@ -28,8 +28,12 @@ namespace PustokApp.Areas.PustokArea.ViewModels
         public int? AuthorId { get; set; }
 
         public bool IsAviable { get; set; }
+        public List<int>? TagIds { get; set; }
 
         public List<Genre>? Genres { get; set; }
         public List<Author>? Authors { get; set; }
+
+        public List<Tag>? Tags { get; set; }
+
     }
 }

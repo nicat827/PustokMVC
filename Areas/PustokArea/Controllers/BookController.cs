@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using PustokApp.Areas.PustokArea.ViewModels;
 using PustokApp.DAL;
 using PustokApp.Models;
+using PustokApp.Utilities.Enums;
+using PustokApp.Utilities.Extencions;
 using PustokApp.ViewModels;
 
 namespace PustokApp.Areas.PustokArea.Controllers
@@ -11,10 +13,12 @@ namespace PustokApp.Areas.PustokArea.Controllers
     public class BookController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public BookController(AppDbContext context)
+        public BookController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         public async Task<IActionResult> Index()
@@ -66,6 +70,42 @@ namespace PustokApp.Areas.PustokArea.Controllers
                 return View(bookVM);
             }
 
+            if (!bookVM.MainPhoto.CheckFileType(FileType.Image))
+            {
+                ModelState.AddModelError("MainPhoto", "Please make sure, you uploaded a photo!");
+                bookVM.Authors = await _context.Authors.ToListAsync();
+                bookVM.Genres = await _context.Genres.ToListAsync();
+                bookVM.Tags = await GetTags();
+                return View(bookVM);
+            }
+
+            if (!bookVM.MainPhoto.CheckFileSize(400, FileSize.Kilobite))
+            {
+                ModelState.AddModelError("MainPhoto", "Photo size bigger than we expect (400kB) :(!");
+                bookVM.Authors = await _context.Authors.ToListAsync();
+                bookVM.Genres = await _context.Genres.ToListAsync();
+                bookVM.Tags = await GetTags();
+                return View(bookVM);
+            }
+
+            if (!bookVM.HoverPhoto.CheckFileType(FileType.Image))
+            {
+                ModelState.AddModelError("HoverPhoto", "Please make sure, you uploaded a photo!");
+                bookVM.Authors = await _context.Authors.ToListAsync();
+                bookVM.Genres = await _context.Genres.ToListAsync();
+                bookVM.Tags = await GetTags();
+                return View(bookVM);
+            }
+
+            if (!bookVM.HoverPhoto.CheckFileSize(400, FileSize.Kilobite))
+            {
+                ModelState.AddModelError("HoverPhoto", "Photo size bigger than we expect (400kB) :(!");
+                bookVM.Authors = await _context.Authors.ToListAsync();
+                bookVM.Genres = await _context.Genres.ToListAsync();
+                bookVM.Tags = await GetTags();
+                return View(bookVM);
+            }
+
             bool isExistAuthor = await _context.Authors.AnyAsync(a => a.Id == bookVM.AuthorId);
 
             if (!isExistAuthor)
@@ -88,18 +128,23 @@ namespace PustokApp.Areas.PustokArea.Controllers
                 return View(bookVM);
             }
 
-            foreach (int id in bookVM.TagIds)
+            if (bookVM.TagIds is not null)
             {
-                bool isExist = await _context.Tags.AnyAsync(t => t.Id == id);
-                if (!isExist)
+                foreach (int id in bookVM.TagIds)
                 {
-                    ModelState.AddModelError("TagIds", "Tag with this name doesnt exist!");
-                    bookVM.Authors = await _context.Authors.ToListAsync();
-                    bookVM.Genres = await _context.Genres.ToListAsync();
-                    bookVM.Tags = await GetTags();
-                    return View(bookVM);
+                    bool isExist = await _context.Tags.AnyAsync(t => t.Id == id);
+                    if (!isExist)
+                    {
+                        ModelState.AddModelError("TagIds", "Tag with this name doesnt exist!");
+                        bookVM.Authors = await _context.Authors.ToListAsync();
+                        bookVM.Genres = await _context.Genres.ToListAsync();
+                        bookVM.Tags = await GetTags();
+                        return View(bookVM);
+                    }
                 }
             }
+
+         
 
             Book book = new Book
             {
@@ -113,17 +158,44 @@ namespace PustokApp.Areas.PustokArea.Controllers
                 AuthorId = (int)bookVM.AuthorId,
                 IsAviable =true,
                 IsDeleted = false,
-                BookTags = new List<BookTag>()
+                BookTags = new List<BookTag>(),
+                Images = new List<BookImage>()
                 
             };
 
-            foreach (int tagId in  bookVM.TagIds)
+            book.Images.Add(new BookImage { IsPrimary = true, Image = await bookVM.MainPhoto.CreateFileAsync(_env.WebRootPath, "uploads", "book") });
+            book.Images.Add(new BookImage { IsPrimary = false, Image = await bookVM.HoverPhoto.CreateFileAsync(_env.WebRootPath, "uploads", "book") });
+            TempData["ErrorMessage"] = "";
+            if (bookVM.OtherPhotos is not null)
             {
-                book.BookTags.Add(new BookTag { TagId = tagId });
+                foreach (IFormFile photo in bookVM.OtherPhotos)
+                {
+                    if (!photo.CheckFileType(FileType.Image))
+                    {
+                        TempData["ErrorMessage"] += $"<p>Photo with name {photo.FileName}  wasn't created, beacuse type is not valid!</p>";
+                        continue;
+                    }
+                    if (!photo.CheckFileSize(400, FileSize.Kilobite))
+                    {
+                        TempData["ErrorMessage"] += $"<p>Photo with name {photo.FileName}  wasn't created, beacuse size bigger than 400Kb!</p>";
+                        continue;
+                    }
+
+                    book.Images.Add(new BookImage { IsPrimary = null, Image = await photo.CreateFileAsync(_env.WebRootPath, "uploads", "book")});
+
+
+                }
             }
 
-           
 
+            if (bookVM.TagIds is not null)
+            {
+                foreach (int tagId in bookVM.TagIds)
+                {
+                    book.BookTags.Add(new BookTag { TagId = tagId });
+                }
+            }
+           
             await _context.Books.AddAsync(book);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -133,8 +205,12 @@ namespace PustokApp.Areas.PustokArea.Controllers
         {
             if (id <= 0) return BadRequest();
 
-            Book book = await _context.Books.FirstOrDefaultAsync(b => b.Id == id);
+            Book book = await _context.Books
+                .Include(b => b.BookTags)
+                .FirstOrDefaultAsync(b => b.Id == id);
+
             if (book is null) return NotFound();
+
             UpdateBookVM bookVM = new UpdateBookVM
             {
                 Name = book.Name,
@@ -146,6 +222,8 @@ namespace PustokApp.Areas.PustokArea.Controllers
                 PageCount = book.PageCount,
                 GenreId = book.GenreId,
                 AuthorId = book.AuthorId,
+                TagIds = book.BookTags.Select(b => b.TagId).ToList(),
+                Tags = await GetTags(),
                 Genres = await GetGenres(),
                 Authors = await GetAuthors(),
                 
@@ -164,11 +242,19 @@ namespace PustokApp.Areas.PustokArea.Controllers
             {
                 bookVM.Authors = await GetAuthors();
                 bookVM.Genres = await GetGenres();
+                bookVM.Tags = await GetTags();
+
                 return View(bookVM);
             }
 
-            Book existed = await _context.Books.FirstOrDefaultAsync(b => b.Id == id);
+            Book existed = await _context.Books
+                .Include(b => b.BookTags)
+                .FirstOrDefaultAsync(b => b.Id == id);
+
             if (existed == null) return NotFound();
+
+
+
             if (bookVM.AuthorId != existed.AuthorId)
             {
                 bool isValidAuthorId = await _context.Authors.AnyAsync(a => a.Id == bookVM.AuthorId);
@@ -177,10 +263,11 @@ namespace PustokApp.Areas.PustokArea.Controllers
                     ModelState.AddModelError("AuthorId", "Author with this name doesnt exist!");
                     bookVM.Authors = await GetAuthors();
                     bookVM.Genres = await GetGenres();
+                    bookVM.Tags = await GetTags();
                     return View(bookVM);
                 }
-                existed.AuthorId = (int) bookVM.AuthorId;
-                   
+                existed.AuthorId = (int)bookVM.AuthorId;
+
             }
             if (bookVM.GenreId != existed.GenreId)
             {
@@ -190,11 +277,37 @@ namespace PustokApp.Areas.PustokArea.Controllers
                     ModelState.AddModelError("GenreId", "Genre with this name doesnt exist!");
                     bookVM.Authors = await GetAuthors();
                     bookVM.Genres = await GetGenres();
+                    bookVM.Tags = await GetTags();
                     return View(bookVM);
                 }
                 existed.AuthorId = (int)bookVM.AuthorId;
 
             }
+
+            if (bookVM.TagIds is not null)
+            {
+                existed.BookTags.RemoveAll(bTag => !bookVM.TagIds.Exists(tagId => tagId == bTag.TagId));
+                
+
+                foreach (int tagId in bookVM.TagIds)
+                {
+                    if (!await _context.BookTags.AnyAsync(bt => bt.TagId == tagId))
+                    {
+                        ModelState.AddModelError("TagIds", "Tag with this name doesnt exist!");
+                        bookVM.Authors = await GetAuthors();
+                        bookVM.Genres = await GetGenres();
+                        bookVM.Tags = await GetTags();
+                        return View(bookVM);
+                    }
+                    
+
+                    if (!existed.BookTags.Exists(bt => bt.TagId == tagId))
+                    {
+                        existed.BookTags.Add(new BookTag { TagId = tagId });
+                    }
+                }
+            }
+            else existed.BookTags = new List<BookTag>();
             
             existed.Description = bookVM.Description;
             existed.PageCount = (int)bookVM.PageCount;
@@ -204,6 +317,7 @@ namespace PustokApp.Areas.PustokArea.Controllers
             existed.GenreId = (int)bookVM.GenreId;
             existed.AuthorId = (int)bookVM.AuthorId;
             existed.IsAviable = bookVM.IsAviable;
+
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -235,5 +349,7 @@ namespace PustokApp.Areas.PustokArea.Controllers
         {
             return await _context.Tags.ToListAsync();
         }
+
+       
     }
 }

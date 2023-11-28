@@ -24,6 +24,14 @@ namespace PustokApp.Areas.PustokArea.ViewModels
 
         public int? GenreId { get; set; }
 
+        //images
+        public IFormFile MainPhoto { get; set; }
+        public IFormFile HoverPhoto { get; set; }
+
+        public List<IFormFile>? OtherPhotos { get; set; }
+
+
+
         [Required]
         public int? AuthorId { get; set; }
 

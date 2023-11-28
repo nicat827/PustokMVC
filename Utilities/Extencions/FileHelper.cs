@@ -1,4 +1,5 @@
-﻿using PustokApp.Models;
+﻿using MessagePack.Formatters;
+using PustokApp.Models;
 using PustokApp.Utilities.Enums;
 
 namespace PustokApp.Utilities.Extencions
@@ -15,6 +16,28 @@ namespace PustokApp.Utilities.Extencions
             }
 
 
+            return false;
+
+        }
+
+        public static bool CheckFileSize(this IFormFile file, int max, FileSize type = FileSize.Kilobite)
+        {
+            if (type == FileSize.Kilobite)
+            {
+                if (file.Length > max * 1024) return false;
+                return true;
+            }
+            if (type == FileSize.Megabite)
+            {
+                if (file.Length > max * 1024 * 1024) return false;
+                return true;
+            }
+
+            if (type == FileSize.Gigabite)
+            {
+                if (file.Length > max * 1024 * 1024 * 1024) return false;
+                return true;
+            }
             return false;
 
         }
