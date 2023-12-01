@@ -9,6 +9,35 @@
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
+                        <img style="width:150px;height:150px;" src="~/uploads/book/@Model.BookImages.FirstOrDefault(b => b.IsPrimary == true)?.Image" />
+                        <label asp-for="MainPhoto">Main photo:</label>
+                        <input asp-for="MainPhoto" class="form-control">
+                        <span class="text-danger p-2 " asp-validation-for="MainPhoto"></span>
+                    </div>
+                    <div class="form-group">
+                        <img style="width:150px;height:150px;" src="~/uploads/book/@Model.BookImages.FirstOrDefault(b => b.IsPrimary == false)?.Image" />
+                        <label asp-for="HoverPhoto">Hover photo:</label>
+                        <input asp-for="HoverPhoto" class="form-control">
+                        <span class="text-danger p-2 " asp-validation-for="HoverPhoto"></span>
+                    </div>
+                  
+                    @foreach (BookImage image in Model.BookImages.Where(bi => bi.IsPrimary == null))
+                    {
+                        <div class="custom-image-div">
+                            <img style="width:150px;height:150px;" src="~/uploads/book/@Model.BookImages.FirstOrDefault(b => b.IsPrimary == null)?.Image" />
+                            <button class="custom-close-btn btn btn-danger ">X</button>
+                            <input type="hidden" value="ImageIds"/>
+                        </div>
+                    }
+                  
+                    <div class="form-group">
+ 
+                        <label asp-for="OtherPhotos">Other photos:</label>
+                        <input asp-for="OtherPhotos" class="form-control">
+                        <span class="text-danger p-2 " asp-validation-for="OtherPhotos"></span>
+                    </div>
+
+                    <div class="form-group">
                         <label asp-for="Name"></label>
                         <input asp-for="Name" class="form-control">
                         <span class="text-danger p-2 " asp-validation-for="Name"></span>
@@ -68,3 +97,11 @@
         </div>
     </div>
 </div>
+
+@section scripts {
+    <script src="~/admin/js/productUpdate.js"></script>
+}
+
+@section css {
+    <link rel="stylesheet" type="text/css" href="~/admin/css/productUpdate.css" />
+}

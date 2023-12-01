@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aTGjWOBzL6Puky8kNK8iuGAqsZ7jOTbO70RXwR243SA=",
+  "Hash": "/hEvpbNfnm4yVwPAkm30jZVX79LQqfTeOBPXjSBx7Ng=",
   "Source": "PustokApp",
   "BasePath": "_content/PustokApp",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\css\\maps\\style.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\admin\\css\\productUpdate.css",
+      "SourceId": "PustokApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\",
+      "BasePath": "_content/PustokApp",
+      "RelativePath": "admin/css/productUpdate.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\css\\productUpdate.css"
     },
     {
       "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\admin\\css\\style.css",
@@ -1222,6 +1239,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\js\\off-canvas.js"
+    },
+    {
+      "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\admin\\js\\productUpdate.js",
+      "SourceId": "PustokApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\",
+      "BasePath": "_content/PustokApp",
+      "RelativePath": "admin/js/productUpdate.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\js\\productUpdate.js"
     },
     {
       "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\admin\\js\\tabs.js",
@@ -3315,6 +3349,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\plugins.js"
     },
     {
+      "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\7101af31-b597-4f16-a547-056297ff3533.jpg",
+      "SourceId": "PustokApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\",
+      "BasePath": "_content/PustokApp",
+      "RelativePath": "uploads/book/7101af31-b597-4f16-a547-056297ff3533.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\book\\7101af31-b597-4f16-a547-056297ff3533.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\72b65b18-91d2-4fa5-9adf-a9fc739ada43.jpg",
       "SourceId": "PustokApp",
       "SourceType": "Discovered",
@@ -3347,6 +3398,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\book\\94eb956b-0f7f-42e5-8e16-016381313d78.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\a3cb5e49-d951-4c01-a139-2fae3203b616.jpg",
+      "SourceId": "PustokApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\",
+      "BasePath": "_content/PustokApp",
+      "RelativePath": "uploads/book/a3cb5e49-d951-4c01-a139-2fae3203b616.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\book\\a3cb5e49-d951-4c01-a139-2fae3203b616.jpg"
     },
     {
       "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\admin\\css\\maps\\style.css.map",
@@ -4809,6 +4877,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\book\\admin\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\de32a278-e181-4103-875f-5c3edf074859.jpg",
+      "SourceId": "PustokApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\",
+      "BasePath": "_content/PustokApp",
+      "RelativePath": "uploads/book/de32a278-e181-4103-875f-5c3edf074859.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\book\\de32a278-e181-4103-875f-5c3edf074859.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\f2f7a311-ae50-464f-97a4-d758a49b7575.jpg",
+      "SourceId": "PustokApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\",
+      "BasePath": "_content/PustokApp",
+      "RelativePath": "uploads/book/f2f7a311-ae50-464f-97a4-d758a49b7575.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\book\\f2f7a311-ae50-464f-97a4-d758a49b7575.jpg"
     },
     {
       "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\product-1.jpg",

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\admin\\css\\maps\\style.css.map"
     },
     {
+      "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\admin\\css\\productUpdate.css",
+      "PackagePath": "staticwebassets\\admin\\css\\productUpdate.css"
+    },
+    {
       "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\admin\\css\\style.css",
       "PackagePath": "staticwebassets\\admin\\css\\style.css"
     },
@@ -283,6 +287,10 @@
     {
       "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\admin\\js\\off-canvas.js",
       "PackagePath": "staticwebassets\\admin\\js\\off-canvas.js"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\admin\\js\\productUpdate.js",
+      "PackagePath": "staticwebassets\\admin\\js\\productUpdate.js"
     },
     {
       "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\admin\\js\\tabs.js",
@@ -777,12 +785,20 @@
       "PackagePath": "staticwebassets\\assets\\js\\plugins.js"
     },
     {
+      "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\7101af31-b597-4f16-a547-056297ff3533.jpg",
+      "PackagePath": "staticwebassets\\uploads\\book\\7101af31-b597-4f16-a547-056297ff3533.jpg"
+    },
+    {
       "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\72b65b18-91d2-4fa5-9adf-a9fc739ada43.jpg",
       "PackagePath": "staticwebassets\\uploads\\book\\72b65b18-91d2-4fa5-9adf-a9fc739ada43.jpg"
     },
     {
       "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\94eb956b-0f7f-42e5-8e16-016381313d78.jpg",
       "PackagePath": "staticwebassets\\uploads\\book\\94eb956b-0f7f-42e5-8e16-016381313d78.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\a3cb5e49-d951-4c01-a139-2fae3203b616.jpg",
+      "PackagePath": "staticwebassets\\uploads\\book\\a3cb5e49-d951-4c01-a139-2fae3203b616.jpg"
     },
     {
       "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\admin\\css\\maps\\style.css.map",
@@ -1127,6 +1143,14 @@
     {
       "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\admin\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff2",
       "PackagePath": "staticwebassets\\uploads\\book\\admin\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff2"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\de32a278-e181-4103-875f-5c3edf074859.jpg",
+      "PackagePath": "staticwebassets\\uploads\\book\\de32a278-e181-4103-875f-5c3edf074859.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\f2f7a311-ae50-464f-97a4-d758a49b7575.jpg",
+      "PackagePath": "staticwebassets\\uploads\\book\\f2f7a311-ae50-464f-97a4-d758a49b7575.jpg"
     },
     {
       "Id": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\uploads\\book\\product-1.jpg",

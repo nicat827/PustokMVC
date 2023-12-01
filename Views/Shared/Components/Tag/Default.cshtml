@@ -1,0 +1,28 @@
+﻿
+@model List<Book>
+
+<div class="container">
+    <div class="section-title section-title--bordered">
+        <h2>Books with "Long" tag</h2>
+    </div>
+    <div class="product-list-slider slider-two-column product-slider multiple-row sb-slick-slider slider-border-multiple-row"
+         data-slick-setting='{
+                                            "autoplay": true,
+                                            "autoplaySpeed": 8000,
+                                            "slidesToShow":3,
+                                            "rows":2,
+                                            "dots":true
+                                        }' data-slick-responsive='[
+                                            {"breakpoint":1200, "settings": {"slidesToShow": 2} },
+                                            {"breakpoint":992, "settings": {"slidesToShow": 2} },
+                                            {"breakpoint":768, "settings": {"slidesToShow": 1} },
+                                            {"breakpoint":575, "settings": {"slidesToShow": 1} },
+                                            {"breakpoint":490, "settings": {"slidesToShow": 1} }
+            
+]'>
+        @await Html.PartialAsync("BookPartialView", Model)
+            
+        }
+       
+    </div>
+</div>

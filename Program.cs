@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PustokApp.DAL;
+using PustokApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL"));
 });
+
+builder.Services.AddScoped<LayoutService>();
 
 var app = builder.Build();
 

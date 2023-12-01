@@ -206,6 +206,7 @@ namespace PustokApp.Areas.PustokArea.Controllers
             if (id <= 0) return BadRequest();
 
             Book book = await _context.Books
+                .Include(b => b.Images)
                 .Include(b => b.BookTags)
                 .FirstOrDefaultAsync(b => b.Id == id);
 
@@ -221,6 +222,7 @@ namespace PustokApp.Areas.PustokArea.Controllers
                 Description = book.Description,
                 PageCount = book.PageCount,
                 GenreId = book.GenreId,
+                BookImages = book.Images,
                 AuthorId = book.AuthorId,
                 TagIds = book.BookTags.Select(b => b.TagId).ToList(),
                 Tags = await GetTags(),
@@ -238,18 +240,21 @@ namespace PustokApp.Areas.PustokArea.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateBookVM bookVM)
         {
+            Book existed = await _context.Books
+              .Include(b => b.BookTags)
+              .Include(b => b.Images)
+              .FirstOrDefaultAsync(b => b.Id == id);
+
             if (!ModelState.IsValid)
             {
                 bookVM.Authors = await GetAuthors();
                 bookVM.Genres = await GetGenres();
                 bookVM.Tags = await GetTags();
-
+                bookVM.BookImages = existed.Images;
                 return View(bookVM);
             }
 
-            Book existed = await _context.Books
-                .Include(b => b.BookTags)
-                .FirstOrDefaultAsync(b => b.Id == id);
+          
 
             if (existed == null) return NotFound();
 

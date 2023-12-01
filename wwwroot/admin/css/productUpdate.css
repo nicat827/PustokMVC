@@ -1,0 +1,12 @@
+﻿.custom-image-div {
+    position:relative;
+    display:inline-block;
+
+}
+
+.custom-close-btn {
+    position:absolute;
+    top:5px;
+    right:5px;
+    padding:10px;
+}
