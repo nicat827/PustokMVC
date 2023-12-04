@@ -11,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL"));
 });
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<LayoutService>();
 
 var app = builder.Build();

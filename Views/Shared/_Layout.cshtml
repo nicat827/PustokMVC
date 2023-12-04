@@ -4,6 +4,7 @@
 
 @{
     Dictionary<string, string> settings = await service.GetSettingsAsync();
+    List<BasketItemVM> basket = await service.GetBasketAsync();
 }
 <!DOCTYPE html>
 <html lang="zxx">
@@ -111,7 +112,7 @@
                                         <a href="javascript:void(0)">Pages <i
                                                 class="fas fa-chevron-down dropdown-arrow"></i></a>
                                         <ul class="sub-menu">
-                                            <li><a href="cart.html">Cart</a></li>
+                                            <li><a asp-action="index" asp-controller="basket">Cart</a></li>
                                             <li><a href="checkout.html">Checkout</a></li>
                                             <li><a href="compare.html">Compare</a></li>
                                             <li><a href="wishlist.html">Wishlist</a></li>
@@ -293,42 +294,7 @@
                                         <span>or</span><a href="login-register.html">Register</a>
                                     </div>
                                     <div class="cart-block">
-                                        <div class="cart-total">
-                                            <span class="text-number">
-                                                1
-                                            </span>
-                                            <span class="text-item">
-                                                Shopping Cart
-                                            </span>
-                                            <span class="price">
-                                                £0.00
-                                                <i class="fas fa-chevron-down"></i>
-                                            </span>
-                                        </div>
-                                        <div class="cart-dropdown-block">
-                                            <div class=" single-cart-block ">
-                                                <div class="cart-product">
-                                                    <a href="product-details.html" class="image">
-                                                        <img src="~/assets/image/products/cart-product-1.jpg" alt="">
-                                                    </a>
-                                                    <div class="content">
-                                                        <h3 class="title"><a href="product-details.html">Kodak PIXPRO
-                                                                Astro Zoom AZ421 16 MP</a>
-                                                        </h3>
-                                                        <p class="price"><span class="qty">1 ×</span> £87.34</p>
-                                                        <button class="cross-btn"><i class="fas fa-times"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class=" single-cart-block ">
-                                                <div class="btn-block">
-                                                    <a href="cart.html" class="btn">View Cart <i
-                                                            class="fas fa-chevron-right"></i></a>
-                                                    <a href="checkout.html" class="btn btn--primary">Check Out <i
-                                                            class="fas fa-chevron-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @await Html.PartialAsync("CartPartialView", basket)
                                     </div>
                                 </div>
                             </div>

@@ -19,6 +19,7 @@ namespace PustokApp.ViewComponents
 
             List<Book> relatedBooks = await _context.Books
                 .Take(8)
+                .Where(b => b.IsDeleted == false)
                 .Include(b => b.BookTags.Where(x=>x.Tag.Name=="Long"))
                 .ToListAsync();
 

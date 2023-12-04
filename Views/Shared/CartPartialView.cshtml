@@ -1,0 +1,40 @@
+﻿
+@model List<BasketItemVM>
+
+<div class="cart-total">
+    <span class="text-number">
+        @Model.Count
+    </span>
+    <span class="text-item">
+        Shopping Cart
+    </span>
+    <span class="price">
+        £@Model.Sum(i => i.Subtotal)
+        <i class="fas fa-chevron-down"></i>
+    </span>
+</div>
+<div class="cart-dropdown-block">
+    @foreach (BasketItemVM item in Model)
+    {
+        <div class=" single-cart-block ">
+            <div class="cart-product">
+                <a asp-controller="book" asp-action="detail" asp-route-id="@item.Id" class="image">
+                    <img src="~/uploads/book/@item.ImageUrl" />
+                </a>
+                <div class="content">
+                    <h3 class="title">
+                        <a asp-controller="book" asp-action="detail" asp-route-id="@item.Id">
+                            @item.Name
+                        </a>
+                    </h3>
+                    <p class="price"><span class="qty">@item.Count ×</span> £@item.Price</p>
+                    <a asp-controller="basket" asp-action="delete" asp-route-id="@item.Id">
+                        <button class="cross-btn"><i class="fas fa-times"></i></button>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
