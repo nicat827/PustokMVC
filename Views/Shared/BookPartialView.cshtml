@@ -23,7 +23,7 @@
                             <img src="~/uploads/book/@book.Images.FirstOrDefault(i => i.IsPrimary == false)?.Image" alt="">
                         </a>
                         <div class="hover-btns">
-                            <a asp-controller="basket" asp-action="add" asp-route-id="@book.Id" class="single-btn">
+                            <a asp-controller="basket" asp-action="add" asp-route-id="@book.Id" class="single-btn add-basket-btn">
                                 <i class="fas fa-shopping-basket"></i>
                             </a>
                             <a href="wishlist.html" class="single-btn">

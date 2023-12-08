@@ -1,0 +1,59 @@
+﻿@model RegisterUserVM
+<div class="row justify-content-center">
+    <div class="col-sm-12 col-md-12 col-xs-12 col-lg-6 mb--30 mb-lg--0">
+        <!-- Login Form s-->
+        <form method="post">
+            <div class="login-form">
+                <h4 class="login-title">
+                    Register Form<h4>
+                        <div class="text-danger" style="font-size:30px; font-weight:600;" asp-validation-summary="ModelOnly"></div>
+                        <div class="row">
+                            <div class="col-md-6 col-6 mb--15">
+                                <label asp-for="Name">Name</label>
+                                <input asp-for="Name" class="mb-0 form-control"
+                                       placeholder="Enter your name">
+                                <span style="color:red; font-weight:600; font-size:22px;" asp-validation-for="Name"></span>
+                            </div>
+                            <div class="col-md-6 col-6 mb--15">
+                                <label asp-for="Surname">Surname</label>
+                                <input asp-for="Surname" class="mb-0 form-control"
+                                       placeholder="Enter your surname">
+                                <span style="color:red; font-weight:600; font-size:22px;" asp-validation-for="Surname"></span>
+
+                            </div>
+                            <div class="col-md-6 col-6 mb--15">
+                                <label asp-for="Username">Username</label>
+                                <input asp-for="Username" class="mb-0 form-control"
+                                       placeholder="Enter your username">
+                                <span style="color:red; font-weight:600; font-size:22px;" asp-validation-for="Username"></span>
+
+                            </div>
+                            <div class="col-md-6 col-6 mb--15">
+                                <label asp-for="Email">Email</label>
+                                <input asp-for="Email" class="mb-0 form-control"
+                                       placeholder="Enter your email">
+                                <span style="color:red; font-weight:600; font-size:22px;" asp-validation-for="Email"></span>
+
+                            </div>
+                            <div class="col-md-6 col-6 mb--15">
+                                <label asp-for="Password">Password</label>
+                                <input asp-for="Password" class="mb-0 form-control"
+                                       placeholder="Enter your password">
+                                <span style="color:red; font-weight:600; font-size:22px;" asp-validation-for="Password"></span>
+
+                            </div>
+                            <div class="col-md-6 col-6 mb--15">
+                                <label asp-for="ConfirmPassword">Repeat Password</label>
+                                <input asp-for="ConfirmPassword" class="mb-0 form-control"
+                                       placeholder="Repeat your password">
+                                <spanstyle ="color:red; font-weight:600; font-size:18px;" asp-validation-for="ConfirmPassword"></span>
+
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-outlined">Register</button>
+                            </div>
+                        </div>
+            </div>
+        </form>
+    </div>
+</div>

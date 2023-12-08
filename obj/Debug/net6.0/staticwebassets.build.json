@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/hEvpbNfnm4yVwPAkm30jZVX79LQqfTeOBPXjSBx7Ng=",
+  "Hash": "c27s8hdA2lukoZjVXJOWezOaxE2hFQ0AwFePYhMEJHc=",
   "Source": "PustokApp",
   "BasePath": "_content/PustokApp",
   "Mode": "Default",
@@ -3330,6 +3330,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\custom.js"
+    },
+    {
+      "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\assets\\js\\main.js",
+      "SourceId": "PustokApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\",
+      "BasePath": "_content/PustokApp",
+      "RelativePath": "assets/js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\main.js"
     },
     {
       "Identity": "C:\\Users\\ca.r214.05\\Desktop\\Nicats folder\\PustokApp\\wwwroot\\assets\\js\\plugins.js",

@@ -6,6 +6,8 @@ using PustokApp.ViewModels;
 
 namespace PustokApp.Controllers
 {
+    [AutoValidateAntiforgeryToken]
+
     public class BookController : Controller
     {
         private readonly AppDbContext _context;

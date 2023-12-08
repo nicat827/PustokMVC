@@ -5,6 +5,7 @@
 @{
     Dictionary<string, string> settings = await service.GetSettingsAsync();
     List<BasketItemVM> basket = await service.GetBasketAsync();
+    bool isAdmin = User.IsInRole(UserRole.Admin.ToString());
 }
 <!DOCTYPE html>
 <html lang="zxx">
@@ -23,12 +24,17 @@
 
 <body>
     <div class="site-wrapper" id="top">
+        @if (isAdmin)
+        {
+            <a asp-area="PustokArea" asp-controller="dashboard" asp-action="index" style="margin:10px;padding:5px 10px; background-color:forestgreen; border:1px solid green; border-radius:8px;color:white;">Admin Panel</a>
+
+        }
         <div class="site-header d-none d-lg-block">
-            <div class="header-middle pt--10 pb--10"> 
-                <div class="container">
-                    <div class="row align-items-center">
+            <div class="header-middle pt--10 pb--10">
+                <div class="container w-80">
+                    <div class="row align-items-center w-95">
                         <div class="col-lg-3 ">
-                            <a asp-controller="home" asp-action="index"  class="site-brand">
+                            <a asp-controller="home" asp-action="index" class="site-brand">
                                 <img src="~/assets/image/@settings["logo"]" alt="">
                             </a>
                         </div>
@@ -46,9 +52,11 @@
                         <div class="col-lg-6">
                             <div class="main-navigation flex-lg-right">
                                 <ul class="main-menu menu-right ">
+
                                     <li class="menu-item has-children">
-                                        <a href="javascript:void(0)">Home <i
-                                                class="fas fa-chevron-down dropdown-arrow"></i></a>
+                                        <a href="javascript:void(0)">
+                                            Home <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                        </a>
                                         <ul class="sub-menu">
                                             <li> <a href="index.html">Home One</a></li>
                                             <li> <a href="index-2.html">Home Two</a></li>
@@ -59,8 +67,9 @@
                                     </li>
                                     <!-- Shop -->
                                     <li class="menu-item has-children mega-menu">
-                                        <a href="javascript:void(0)">shop <i
-                                                class="fas fa-chevron-down dropdown-arrow"></i></a>
+                                        <a href="javascript:void(0)">
+                                            shop <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                        </a>
                                         <ul class="sub-menu four-column">
                                             <li class="cus-col-25">
                                                 <h3 class="menu-title"><a href="javascript:void(0)">Shop Grid </a></h3>
@@ -79,29 +88,53 @@
                                                 </ul>
                                             </li>
                                             <li class="cus-col-25">
-                                                <h3 class="menu-title"> <a href="javascript:void(0)">Product Details
-                                                        1</a></h3>
+                                                <h3 class="menu-title">
+                                                    <a href="javascript:void(0)">
+                                                        Product Details
+                                                        1
+                                                    </a>
+                                                </h3>
                                                 <ul class="mega-single-block">
                                                     <li><a href="product-details.html">Product Details Page</a></li>
-                                                    <li><a href="product-details-affiliate.html">Product Details
-                                                            Affiliate</a></li>
-                                                    <li><a href="product-details-group.html">Product Details Group</a>
+                                                    <li>
+                                                        <a href="product-details-affiliate.html">
+                                                            Product Details
+                                                            Affiliate
+                                                        </a>
                                                     </li>
-                                                    <li><a href="product-details-variable.html">Product Details
-                                                            Variables</a></li>
+                                                    <li>
+                                                        <a href="product-details-group.html">Product Details Group</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details-variable.html">
+                                                            Product Details
+                                                            Variables
+                                                        </a>
+                                                    </li>
                                                 </ul>
                                             </li>
                                             <li class="cus-col-25">
-                                                <h3 class="menu-title"><a href="javascript:void(0)">Product Details
-                                                        2</a></h3>
+                                                <h3 class="menu-title">
+                                                    <a href="javascript:void(0)">
+                                                        Product Details
+                                                        2
+                                                    </a>
+                                                </h3>
                                                 <ul class="mega-single-block">
-                                                    <li><a href="product-details-left-thumbnail.html">left Thumbnail</a>
+                                                    <li>
+                                                        <a href="product-details-left-thumbnail.html">left Thumbnail</a>
                                                     </li>
-                                                    <li><a href="product-details-right-thumbnail.html">Right
-                                                            Thumbnail</a></li>
-                                                    <li><a href="product-details-left-gallery.html">Left Gallery</a>
+                                                    <li>
+                                                        <a href="product-details-right-thumbnail.html">
+                                                            Right
+                                                            Thumbnail
+                                                        </a>
                                                     </li>
-                                                    <li><a href="product-details-right-gallery.html">Right Gallery</a>
+                                                    <li>
+                                                        <a href="product-details-left-gallery.html">Left Gallery</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details-right-gallery.html">Right Gallery</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -109,8 +142,9 @@
                                     </li>
                                     <!-- Pages -->
                                     <li class="menu-item has-children">
-                                        <a href="javascript:void(0)">Pages <i
-                                                class="fas fa-chevron-down dropdown-arrow"></i></a>
+                                        <a href="javascript:void(0)">
+                                            Pages <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                        </a>
                                         <ul class="sub-menu">
                                             <li><a asp-action="index" asp-controller="basket">Cart</a></li>
                                             <li><a href="checkout.html">Checkout</a></li>
@@ -125,8 +159,9 @@
                                     </li>
                                     <!-- Blog -->
                                     <li class="menu-item has-children mega-menu">
-                                        <a href="javascript:void(0)">Blog <i
-                                                class="fas fa-chevron-down dropdown-arrow"></i></a>
+                                        <a href="javascript:void(0)">
+                                            Blog <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                        </a>
                                         <ul class="sub-menu three-column">
                                             <li class="cus-col-33">
                                                 <h3 class="menu-title"><a href="javascript:void(0)">Blog Grid</a></h3>
@@ -145,7 +180,8 @@
                                                 </ul>
                                             </li>
                                             <li class="cus-col-33">
-                                                <h3 class="menu-title"><a href="javascript:void(0)">Blog Details</a>
+                                                <h3 class="menu-title">
+                                                    <a href="javascript:void(0)">Blog Details</a>
                                                 </h3>
                                                 <ul class="mega-single-block">
                                                     <li><a href="blog-details.html">Image Format (Default)</a></li>
@@ -171,10 +207,12 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3">
                             <nav class="category-nav   ">
+
                                 <div>
-                                    <a href="javascript:void(0)" class="category-trigger"><i
-                                            class="fa fa-bars"></i>Browse
-                                        categories</a>
+                                    <a href="javascript:void(0)" class="category-trigger">
+                                        <i class="fa fa-bars"></i>Browse
+                                        categories
+                                    </a>
                                     <ul class="category-menu">
                                         <li class="cat-item has-children">
                                             <a href="#">Arts & Photography</a>
@@ -186,7 +224,9 @@
                                                 <li><a href="#">Lighting & Studio</a></li>
                                             </ul>
                                         </li>
-                                        <li class="cat-item has-children mega-menu"><a href="#">Biographies</a>
+
+                                        <li class="cat-item has-children mega-menu">
+                                            <a href="#">Biographies</a>
                                             <ul class="sub-menu">
                                                 <li class="single-block">
                                                     <h3 class="title">WHEEL SIMULATORS</h3>
@@ -230,15 +270,8 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="cat-item has-children"><a href="#">Business & Money</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Brake Tools</a></li>
-                                                <li><a href="#">Driveshafts</a></li>
-                                                <li><a href="#">Emergency Brake</a></li>
-                                                <li><a href="#">Spools</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="cat-item has-children"><a href="#">Calendars</a>
+                                        <li class="cat-item has-children">
+                                            <a href="#">Business & Money</a>
                                             <ul class="sub-menu">
                                                 <li><a href="#">Brake Tools</a></li>
                                                 <li><a href="#">Driveshafts</a></li>
@@ -246,7 +279,8 @@
                                                 <li><a href="#">Spools</a></li>
                                             </ul>
                                         </li>
-                                        <li class="cat-item has-children"><a href="#">Children's Books</a>
+                                        <li class="cat-item has-children">
+                                            <a href="#">Calendars</a>
                                             <ul class="sub-menu">
                                                 <li><a href="#">Brake Tools</a></li>
                                                 <li><a href="#">Driveshafts</a></li>
@@ -254,7 +288,17 @@
                                                 <li><a href="#">Spools</a></li>
                                             </ul>
                                         </li>
-                                        <li class="cat-item has-children"><a href="#">Comics</a>
+                                        <li class="cat-item has-children">
+                                            <a href="#">Children's Books</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">Brake Tools</a></li>
+                                                <li><a href="#">Driveshafts</a></li>
+                                                <li><a href="#">Emergency Brake</a></li>
+                                                <li><a href="#">Spools</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="cat-item has-children">
+                                            <a href="#">Comics</a>
                                             <ul class="sub-menu">
                                                 <li><a href="#">Brake Tools</a></li>
                                                 <li><a href="#">Driveshafts</a></li>
@@ -263,7 +307,8 @@
                                             </ul>
                                         </li>
                                         <li class="cat-item"><a href="#">Perfomance Filters</a></li>
-                                        <li class="cat-item has-children"><a href="#">Cookbooks</a>
+                                        <li class="cat-item has-children">
+                                            <a href="#">Cookbooks</a>
                                             <ul class="sub-menu">
                                                 <li><a href="#">Brake Tools</a></li>
                                                 <li><a href="#">Driveshafts</a></li>
@@ -274,8 +319,12 @@
                                         <li class="cat-item "><a href="#">Accessories</a></li>
                                         <li class="cat-item "><a href="#">Education</a></li>
                                         <li class="cat-item hidden-menu-item"><a href="#">Indoor Living</a></li>
-                                        <li class="cat-item"><a href="#" class="js-expand-hidden-menu">More
-                                                Categories</a></li>
+                                        <li class="cat-item">
+                                            <a href="#" class="js-expand-hidden-menu">
+                                                More
+                                                Categories
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </nav>
@@ -289,11 +338,24 @@
                         <div class="col-lg-4">
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
-                                    <div class="login-block">
-                                        <a href="login-register.html" class="font-weight-bold">Login</a> <br>
-                                        <span>or</span><a href="login-register.html">Register</a>
+                                    <div class="login-block r">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <div class="d-flex flex-column align-items-center">
+                                                <a asp-controller="account" asp-action="index">@User.Identity.Name.ToUpper()</a>
+                                                <a style="padding:0px 10px; border: 1px solid gray;" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
+                                            </div>
+
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="account" asp-action="login" class="font-weight-bold">Login</a> <br>
+                                            <span>or</span>
+                                            <a asp-controller="account" asp-action="register">Register</a>
+                                        }
+
                                     </div>
-                                    <div class="cart-block">
+                                    <div class="cart-block basket-block">
                                         @await Html.PartialAsync("CartPartialView", basket)
                                     </div>
                                 </div>
@@ -315,9 +377,10 @@
                         <div class="col-md-5 order-3 order-md-2">
                             <nav class="category-nav   ">
                                 <div>
-                                    <a href="javascript:void(0)" class="category-trigger"><i
-                                            class="fa fa-bars"></i>Browse
-                                        categories</a>
+                                    <a href="javascript:void(0)" class="category-trigger">
+                                        <i class="fa fa-bars"></i>Browse
+                                        categories
+                                    </a>
                                     <ul class="category-menu">
                                         <li class="cat-item has-children">
                                             <a href="#">Arts & Photography</a>
@@ -329,7 +392,8 @@
                                                 <li><a href="#">Lighting & Studio</a></li>
                                             </ul>
                                         </li>
-                                        <li class="cat-item has-children mega-menu"><a href="#">Biographies</a>
+                                        <li class="cat-item has-children mega-menu">
+                                            <a href="#">Biographies</a>
                                             <ul class="sub-menu">
                                                 <li class="single-block">
                                                     <h3 class="title">WHEEL SIMULATORS</h3>
@@ -373,15 +437,8 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="cat-item has-children"><a href="#">Business & Money</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Brake Tools</a></li>
-                                                <li><a href="#">Driveshafts</a></li>
-                                                <li><a href="#">Emergency Brake</a></li>
-                                                <li><a href="#">Spools</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="cat-item has-children"><a href="#">Calendars</a>
+                                        <li class="cat-item has-children">
+                                            <a href="#">Business & Money</a>
                                             <ul class="sub-menu">
                                                 <li><a href="#">Brake Tools</a></li>
                                                 <li><a href="#">Driveshafts</a></li>
@@ -389,7 +446,8 @@
                                                 <li><a href="#">Spools</a></li>
                                             </ul>
                                         </li>
-                                        <li class="cat-item has-children"><a href="#">Children's Books</a>
+                                        <li class="cat-item has-children">
+                                            <a href="#">Calendars</a>
                                             <ul class="sub-menu">
                                                 <li><a href="#">Brake Tools</a></li>
                                                 <li><a href="#">Driveshafts</a></li>
@@ -397,7 +455,17 @@
                                                 <li><a href="#">Spools</a></li>
                                             </ul>
                                         </li>
-                                        <li class="cat-item has-children"><a href="#">Comics</a>
+                                        <li class="cat-item has-children">
+                                            <a href="#">Children's Books</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">Brake Tools</a></li>
+                                                <li><a href="#">Driveshafts</a></li>
+                                                <li><a href="#">Emergency Brake</a></li>
+                                                <li><a href="#">Spools</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="cat-item has-children">
+                                            <a href="#">Comics</a>
                                             <ul class="sub-menu">
                                                 <li><a href="#">Brake Tools</a></li>
                                                 <li><a href="#">Driveshafts</a></li>
@@ -406,7 +474,8 @@
                                             </ul>
                                         </li>
                                         <li class="cat-item"><a href="#">Perfomance Filters</a></li>
-                                        <li class="cat-item has-children"><a href="#">Cookbooks</a>
+                                        <li class="cat-item has-children">
+                                            <a href="#">Cookbooks</a>
                                             <ul class="sub-menu">
                                                 <li><a href="#">Brake Tools</a></li>
                                                 <li><a href="#">Driveshafts</a></li>
@@ -417,8 +486,12 @@
                                         <li class="cat-item "><a href="#">Accessories</a></li>
                                         <li class="cat-item "><a href="#">Education</a></li>
                                         <li class="cat-item hidden-menu-item"><a href="#">Indoor Living</a></li>
-                                        <li class="cat-item"><a href="#" class="js-expand-hidden-menu">More
-                                                Categories</a></li>
+                                        <li class="cat-item">
+                                            <a href="#" class="js-expand-hidden-menu">
+                                                More
+                                                Categories
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </nav>
@@ -430,8 +503,9 @@
                                         <a href="cart.html" class="cart-link link-icon"><i class="ion-bag"></i></a>
                                     </li>
                                     <li class="sin-link">
-                                        <a href="javascript:" class="link-icon hamburgur-icon off-canvas-btn"><i
-                                                class="ion-navicon"></i></a>
+                                        <a href="javascript:" class="link-icon hamburgur-icon off-canvas-btn">
+                                            <i class="ion-navicon"></i>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -522,19 +596,29 @@
                                             <a href="#">Product Details 1</a>
                                             <ul class="sub-menu">
                                                 <li><a href="product-details.html">Product Details Page</a></li>
-                                                <li><a href="product-details-affiliate.html">Product Details
-                                                        Affiliate</a></li>
+                                                <li>
+                                                    <a href="product-details-affiliate.html">
+                                                        Product Details
+                                                        Affiliate
+                                                    </a>
+                                                </li>
                                                 <li><a href="product-details-group.html">Product Details Group</a></li>
-                                                <li><a href="product-details-variable.html">Product Details
-                                                        Variables</a></li>
+                                                <li>
+                                                    <a href="product-details-variable.html">
+                                                        Product Details
+                                                        Variables
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children">
                                             <a href="#">Product Details 2</a>
                                             <ul class="sub-menu">
-                                                <li><a href="product-details-left-thumbnail.html">left Thumbnail</a>
+                                                <li>
+                                                    <a href="product-details-left-thumbnail.html">left Thumbnail</a>
                                                 </li>
-                                                <li><a href="product-details-right-thumbnail.html">Right Thumbnail</a>
+                                                <li>
+                                                    <a href="product-details-right-thumbnail.html">Right Thumbnail</a>
                                                 </li>
                                                 <li><a href="product-details-left-gallery.html">Left Gallery</a></li>
                                                 <li><a href="product-details-right-gallery.html">Right Gallery</a></li>
@@ -619,8 +703,9 @@
                         <div class="main-navigation flex-lg-right">
                             <ul class="main-menu menu-right ">
                                 <li class="menu-item has-children">
-                                    <a href="javascript:void(0)">Home <i
-                                            class="fas fa-chevron-down dropdown-arrow"></i></a>
+                                    <a href="javascript:void(0)">
+                                        Home <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                    </a>
                                     <ul class="sub-menu">
                                         <li> <a href="index.html">Home One</a></li>
                                         <li> <a href="index-2.html">Home Two</a></li>
@@ -631,8 +716,9 @@
                                 </li>
                                 <!-- Shop -->
                                 <li class="menu-item has-children mega-menu">
-                                    <a href="javascript:void(0)">shop <i
-                                            class="fas fa-chevron-down dropdown-arrow"></i></a>
+                                    <a href="javascript:void(0)">
+                                        shop <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                    </a>
                                     <ul class="sub-menu four-column">
                                         <li class="cus-col-25">
                                             <h3 class="menu-title"><a href="javascript:void(0)">Shop Grid </a></h3>
@@ -651,24 +737,36 @@
                                             </ul>
                                         </li>
                                         <li class="cus-col-25">
-                                            <h3 class="menu-title"> <a href="javascript:void(0)">Product Details 1</a>
+                                            <h3 class="menu-title">
+                                                <a href="javascript:void(0)">Product Details 1</a>
                                             </h3>
                                             <ul class="mega-single-block">
                                                 <li><a href="product-details.html">Product Details Page</a></li>
-                                                <li><a href="product-details-affiliate.html">Product Details
-                                                        Affiliate</a></li>
+                                                <li>
+                                                    <a href="product-details-affiliate.html">
+                                                        Product Details
+                                                        Affiliate
+                                                    </a>
+                                                </li>
                                                 <li><a href="product-details-group.html">Product Details Group</a></li>
-                                                <li><a href="product-details-variable.html">Product Details
-                                                        Variables</a></li>
+                                                <li>
+                                                    <a href="product-details-variable.html">
+                                                        Product Details
+                                                        Variables
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li class="cus-col-25">
-                                            <h3 class="menu-title"><a href="javascript:void(0)">Product Details 2</a>
+                                            <h3 class="menu-title">
+                                                <a href="javascript:void(0)">Product Details 2</a>
                                             </h3>
                                             <ul class="mega-single-block">
-                                                <li><a href="product-details-left-thumbnail.html">left Thumbnail</a>
+                                                <li>
+                                                    <a href="product-details-left-thumbnail.html">left Thumbnail</a>
                                                 </li>
-                                                <li><a href="product-details-right-thumbnail.html">Right Thumbnail</a>
+                                                <li>
+                                                    <a href="product-details-right-thumbnail.html">Right Thumbnail</a>
                                                 </li>
                                                 <li><a href="product-details-left-gallery.html">Left Gallery</a></li>
                                                 <li><a href="product-details-right-gallery.html">Right Gallery</a></li>
@@ -678,8 +776,9 @@
                                 </li>
                                 <!-- Pages -->
                                 <li class="menu-item has-children">
-                                    <a href="javascript:void(0)">Pages <i
-                                            class="fas fa-chevron-down dropdown-arrow"></i></a>
+                                    <a href="javascript:void(0)">
+                                        Pages <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                    </a>
                                     <ul class="sub-menu">
                                         <li><a href="cart.html">Cart</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
@@ -694,8 +793,9 @@
                                 </li>
                                 <!-- Blog -->
                                 <li class="menu-item has-children mega-menu">
-                                    <a href="javascript:void(0)">Blog <i
-                                            class="fas fa-chevron-down dropdown-arrow"></i></a>
+                                    <a href="javascript:void(0)">
+                                        Blog <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                    </a>
                                     <ul class="sub-menu three-column">
                                         <li class="cus-col-33">
                                             <h3 class="menu-title"><a href="javascript:void(0)">Blog Grid</a></h3>
@@ -734,13 +834,13 @@
                 </div>
             </div>
         </div>
-  @RenderBody();
+        @RenderBody();
         <!--=================================
         Footer
         ===================================== -->
         <!-- Modal -->
         <div class="modal fade modal-quick-view" id="quickModal" tabindex="-1" role="dialog"
-            aria-labelledby="quickModal" aria-hidden="true">
+             aria-labelledby="quickModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <button type="button" class="close modal-close-btn ml-auto" data-dismiss="modal" aria-label="Close">
@@ -776,7 +876,7 @@
                                 </div>
                                 <!-- Product Details Slider Nav -->
                                 <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two"
-                                    data-slick-setting='{
+                                     data-slick-setting='{
             "infinite":true,
               "autoplay": true,
               "autoplaySpeed": 8000,
@@ -834,11 +934,13 @@
                                     </div>
                                     <article class="product-details-article">
                                         <h4 class="sr-only">Product Summery</h4>
-                                        <p>Long printed dress with thin adjustable straps. V-neckline and wiring under
+                                        <p>
+                                            Long printed dress with thin adjustable straps. V-neckline and wiring under
                                             the Dust with ruffles
                                             at the bottom
                                             of the
-                                            dress.</p>
+                                            dress.
+                                        </p>
                                     </article>
                                     <div class="add-to-cart-row">
                                         <div class="count-input-block">
@@ -846,8 +948,9 @@
                                             <input type="number" class="form-control text-center" value="1">
                                         </div>
                                         <div class="add-cart-btn">
-                                            <a href="#" class="btn btn-outlined--primary"><span
-                                                    class="plus-icon">+</span>Add to Cart</a>
+                                            <a href="#" class="btn btn-outlined--primary">
+                                                <span class="plus-icon">+</span>Add to Cart
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="compare-wishlist-row">
@@ -976,11 +1079,15 @@
                     <div class="social-block">
                         <h3 class="title">STAY CONNECTED</h3>
                         <ul class="social-list list-inline">
-                            <li class="single-social facebook"><a href="#"><i class="ion ion-social-facebook"></i></a>
+                            <li class="single-social facebook">
+                                <a href="#"><i class="ion ion-social-facebook"></i></a>
                             </li>
                             <li class="single-social twitter"><a href="#"><i class="ion ion-social-twitter"></i></a></li>
-                            <li class="single-social google"><a href="#"><i
-                                        class="ion ion-social-googleplus-outline"></i></a></li>
+                            <li class="single-social google">
+                                <a href="#">
+                                    <i class="ion ion-social-googleplus-outline"></i>
+                                </a>
+                            </li>
                             <li class="single-social youtube"><a href="#"><i class="ion ion-social-youtube"></i></a></li>
                         </ul>
                     </div>
@@ -989,15 +1096,19 @@
         </div>
         <div class="footer-bottom">
             <div class="container">
-                <p class="copyright-heading">Suspendisse in auctor augue. Cras fermentum est ac fermentum tempor. Etiam
+                <p class="copyright-heading">
+                    Suspendisse in auctor augue. Cras fermentum est ac fermentum tempor. Etiam
                     vel
-                    magna volutpat, posuere eros</p>
+                    magna volutpat, posuere eros
+                </p>
                 <a href="#" class="payment-block">
                     <img src="~/assets/image/icon/payment.png" alt="">
                 </a>
-                <p class="copyright-text">Copyright © 2019 <a href="#" class="author">Pustok</a>. All Right Reserved.
+                <p class="copyright-text">
+                    Copyright © 2019 <a href="#" class="author">Pustok</a>. All Right Reserved.
                     <br>
-                    Design By Pustok</p>
+                    Design By Pustok
+                </p>
             </div>
         </div>
     </footer>
@@ -1005,6 +1116,8 @@
     <script src="~/assets/js/plugins.js"></script>
     <script src="~/assets/js/ajax-mail.js"></script>
     <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/main.js"></script>
+    @RenderSection("scripts", false)
 </body>
 
 

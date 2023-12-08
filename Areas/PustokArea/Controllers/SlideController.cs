@@ -1,14 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PustokApp.Areas.PustokArea.ViewModels;
 using PustokApp.DAL;
 using PustokApp.Models;
 using PustokApp.Utilities.Enums;
 using PustokApp.Utilities.Extencions;
+using System.Data;
 
 namespace PustokApp.Areas.PustokArea.Controllers
 {
     [Area("PustokArea")]
+    [Authorize(Roles = "Admin")]
+    [AutoValidateAntiforgeryToken]
     public class SlideController : Controller
     {
         private readonly AppDbContext _context;

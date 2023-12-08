@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PustokApp.DAL;
 using PustokApp.Models;
+using System.Data;
 
 namespace PustokApp.Areas.PustokArea.Controllers
 {
     [Area("PustokArea")]
-
+    [Authorize(Roles = "Admin")]
+    [AutoValidateAntiforgeryToken]
     public class TagController : Controller
     {
         private readonly AppDbContext _context;

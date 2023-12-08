@@ -1,13 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PustokApp.Models;
 
 namespace PustokApp.DAL
 {
-    public class AppDbContext: DbContext
+    public class AppDbContext: IdentityDbContext<AppUser>
     {   
         public DbSet<Slide> Slides { get; set; }
         public DbSet<Feature> Features { get; set; }
 
+        public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<Settings> Settings { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Author> Authors { get; set; }
